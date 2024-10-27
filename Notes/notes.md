@@ -462,7 +462,7 @@ for function overloading signature of function must be unique.
     }
 
 ```
-<img src="binding1.png" style="width: 80vw; margin-left: 10vw; filter: saturate(0);"/>
+<img src="./Images/binding1.png" style="width: 80vw; margin-left: 10vw; filter: saturate(0);"/>
 
 **Summary of binding process**
 
@@ -486,4 +486,4 @@ for function overloading signature of function must be unique.
         }
 ```
 - Bind the function if a single, best match is found
-<img src="binding.png" style="width: 100vw; "/>
+<img src="./Images/binding.png" style="width: 100vw; "/>
