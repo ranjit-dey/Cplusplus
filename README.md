@@ -6,7 +6,6 @@ Learning c plus plus programming language
 - C++ is a Object Oriented Programming Language
 - C++ is a superset of c language
 
-
 **Software**
 - Console based application
 - GUI application
@@ -50,6 +49,7 @@ int main() {
 }
 ```
 <h1 style="font-size: 50px; font-weight: bold; font-family: JetBrains Mono NL; color: aqua; ">function()</h1>
+
 ### **inline keyword**
 
 ```c++
@@ -255,6 +255,7 @@ int main()
 }
 ```
 **Output of program**
+
 ```c++
 30
 31
@@ -263,6 +264,7 @@ Prove :
         address of a : 0xb44bdffa5c
         address of c : 0xb44bdffa5c
 ```
+
 <p style="font-size: 40px; color: rgb(0, 175, 58); font-weight: bold;">Call by value</p>
 
 ```c++
@@ -286,9 +288,11 @@ Prove :
         cout << a << " + " << b << " = " << a+b << endl; 
     }
 ```
+
 <hr/>
 
 **output**
+
 ```c++
 10 + 15 = 25
 ```
@@ -320,13 +324,17 @@ Prove :
     }
 
 ```
+
 <hr/>
 
 **output**
+
 ```c++
 10 + 20 = 30
 ```
+
 <p style="font-size: 40px; color: rgb(0, 175, 58); font-weight: bold;">Call by reference</p>
+
 ```c++
     #include<iostream>
     using namespace std;
@@ -355,10 +363,12 @@ Prove :
 <hr/>
 
 **output**
+
 ```c++
 50 + 40 = 90
 value of m: 23, value of n: 32
 ```
+
 question: tell me here what is x in cin (call by value/call by address/call by reference)
 ```c++
     int x;
@@ -453,6 +463,7 @@ for function overloading signature of function must be unique.
 
 ```
 <img src="binding1.png" style="width: 80vw; margin-left: 10vw; filter: saturate(0);"/>
+
 **Summary of binding process**
 
 - Identify candidate functions by name.
@@ -463,6 +474,7 @@ for function overloading signature of function must be unique.
   - Standard conversions (e.g., float to double).
   - User-defined conversions (like conversion operators or constructor calls, which are less preferred).
 - Check for ambiguity; if ambiguous, report a compile-time error.
+  
 ```c++
         int f(double);
         void f(double, double=2.5); 
