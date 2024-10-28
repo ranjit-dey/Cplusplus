@@ -4,10 +4,10 @@ using namespace std;
 
 // created structure of student
 struct student {
-    char name[30];
-    int age;
-    float CGPA;
-    char section;
+    char name[30] = "";
+    int age = 0;
+    float CGPA = 0;
+    char section = '0';
 
     // input function
     void input(){  
@@ -31,7 +31,9 @@ struct student {
 
     // display function
     void printDetails(){
-        int total_no_character = 10+strlen(name);
+        int total_no_character;
+        if(name=="") total_no_character = strlen("Student Details");
+        total_no_character = 10+strlen(name);
 
         cout << endl;
         for(int i=1; i <= total_no_character; i++) cout << "-";
@@ -85,6 +87,9 @@ int main()
     for(int i = 0; i < total_number_student; i++){
         X[i].printDetails();
     }
+
+    details s5;
+    s5.printDetails();
 
     cout << endl;
     return 0;
