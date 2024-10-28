@@ -487,3 +487,221 @@ for function overloading signature of function must be unique.
 ```
 - Bind the function if a single, best match is found
 <img src="./Images/binding.png" style="width: 100vw; "/>
+
+
+<hr>
+<h1 style="font-size: 50px; font-weight: bold; font-family: JetBrains Mono NL; color: aqua; ">Structure</h1>
+
+**Description of structure :**
+- It is option to write struct keyword while you are using structure variable only use struct keyword where it is defined (mandatory)
+
+- by using typedef keyword you can create nickname of (struct struct_name)
+
+```c++
+struct student{
+    int age;
+} typedef details;
+
+// here details is the nickname of struct student data type
+```
+<h2>Example</h2>
+
+```c++
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+// created structure of student
+struct student {
+    char name[30];
+    int age;
+    float CGPA;
+    char section;
+} typedef details; // assign a nickname details
+
+/*
+we can't write the function above the struct student 
+variable because before use a variable we must have to declare it first
+*/
+
+// funtion to take input
+details input(){  
+    details student; // created a struct student variable
+
+    // taking input from user
+    cin.ignore();
+
+    cout << endl;
+    cout << "Enter name of the student : ";
+    cin.getline(student.name, 30);
+
+
+    cout << "Enter " << student.name << "'s age : ";
+    cin >> student.age;
+
+    cout << "Enter " << student.name << "'s section : ";
+    cin >> student.section;
+
+    cout << "Enter " << student.name << "'s CGPA : ";
+    cin >> student.CGPA;
+
+    return student;
+}
+
+// function to print the details 
+void printDetails(details student){
+    int total_no_character = 10+strlen(student.name);
+
+    cout << endl;
+    for(int i=1; i <= total_no_character; i++) cout << "-";
+    cout << endl;
+
+    cout << "Student Details" << endl;
+
+    for(int i=1; i <= total_no_character; i++) cout << "-";
+    cout << endl;
+
+    cout << "Name\t: " << student.name << endl;
+    cout << "Age\t: " << student.age << endl;
+    cout << "Section\t: " << student.section << endl;
+    cout << "CGPA\t: " << student.CGPA << endl;
+
+    for(int i=1; i <= total_no_character; i++) cout << "-";
+    cout << endl << endl;
+
+    
+}
+
+
+int main()
+{
+    cout << endl;
+
+    // type 1
+    struct student s1 = {"Ranjit Dey",21, 8.6, 'C'};
+    printDetails(s1);
+
+
+    // type 2
+    details s2;
+    s2.age = 12;
+    s2.section = 'C';
+    s2.CGPA = 8;
+    strcpy(s2.name, "Hori bol");
+    printDetails(s2);
+
+    // type 3
+    int total_number_student;
+    cout << "Enter total number of student : ";
+    cin >> total_number_student;
+
+    details X[total_number_student];
+
+    for(int i = 0; i < total_number_student; i++){
+        X[i] = input();
+    }
+
+    for(int i = 0; i < total_number_student; i++){
+        printDetails(X[i]);
+    }
+
+    cout << endl;
+    return 0;
+}
+```
+
+<h2>Same Example with different approach</h2>
+
+```c++
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+// created structure of student
+struct student {
+    char name[30];
+    int age;
+    float CGPA;
+    char section;
+
+    // input function
+    void input(){  
+        // taking input from user
+        cin.ignore();
+
+        cout << endl;
+        cout << "Enter name of the student : ";
+        cin.getline(name, 30);
+
+
+        cout << "Enter " << name << "'s age : ";
+        cin >> age;
+
+        cout << "Enter " << name << "'s section : ";
+        cin >> section;
+
+        cout << "Enter " << name << "'s CGPA : ";
+        cin >> CGPA;
+    }
+
+    // display function
+    void printDetails(){
+        int total_no_character = 10+strlen(name);
+
+        cout << endl;
+        for(int i=1; i <= total_no_character; i++) cout << "-";
+        cout << endl;
+
+        cout << "Student Details" << endl;
+
+        for(int i=1; i <= total_no_character; i++) cout << "-";
+        cout << endl;
+
+        cout << "Name\t: " << name << endl;
+        cout << "Age\t: " << age << endl;
+        cout << "Section\t: " << section << endl;
+        cout << "CGPA\t: " << CGPA << endl;
+
+        for(int i=1; i <= total_no_character; i++) cout << "-";
+        cout << endl << endl;
+    }
+
+} typedef details; // assign a nickname details
+
+
+int main()
+{
+    cout << endl;
+
+    // type 1
+    student s1 = {"Ranjit Dey",21, 8.6, 'C'};
+    s1.printDetails();
+
+
+    // type 2
+    details s2;
+    s2.age = 12;
+    s2.section = 'C';
+    s2.CGPA = 8;
+    strcpy(s2.name, "Hori bol");
+    s2.printDetails();
+
+    // type 3
+    int total_number_student;
+    cout << "Enter total number of student : ";
+    cin >> total_number_student;
+
+    details X[total_number_student];
+
+    for(int i = 0; i < total_number_student; i++){
+        X[i].input();
+    }
+
+    for(int i = 0; i < total_number_student; i++){
+        X[i].printDetails();
+    }
+
+    cout << endl;
+    return 0;
+}
+``
