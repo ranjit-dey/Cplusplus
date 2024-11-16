@@ -16,6 +16,8 @@ public:
 
 
 // Definition of two function which is declared inside the class
+
+// :: -> scope resolution operator
 void Student::printDetails(){
     cout << "Name\t: " << name << endl;
     cout << "Age\t: " << age << endl;

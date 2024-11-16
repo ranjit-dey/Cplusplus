@@ -953,3 +953,77 @@ int main()
     return 0;
 }
 ```
+## Static Member Variable
+
+In C++, a **static member variable** is a class-level variable shared across all instances of the class. Here’s a breakdown of its key properties and usage:
+
+1. **Single Copy Across All Instances**: A static member variable is shared by all objects of the class, meaning only one copy exists, regardless of how many instances of the class are created.
+
+2. **Class-Level Storage**: Static members are stored at the class level, not within individual objects. They are stored in a different memory area than instance variables.
+
+3. **Declaration and Initialization**:
+   - You declare a static member variable inside the class, but you must define it outside the class to allocate memory.
+   - Static variables are initialized once and can be re-initialized only outside the class, typically in a `.cpp` file.
+
+   ```cpp
+   class MyClass {
+   public:
+       static int count;  // Declaration of a static variable
+   };
+
+   // Definition and initialization outside the class
+   int MyClass::count = 0;
+   ```
+
+4. **Access**: Since static members are shared among all instances, you can access them directly using the class name without creating an object:
+   ```cpp
+   MyClass::count++;
+   ```
+   Alternatively, they can be accessed via an instance, though this is not common.
+
+5. **Lifetime**: Static variables persist for the entire program's lifetime, like global variables, but their scope is restricted to the class.
+
+6. **Common Use Cases**:
+   - **Counting instances**: To keep track of how many instances of a class are created.
+   - **Constants**: To store class-specific constants or configuration data that shouldn't change per object.
+
+### Example: Counting Instances of a Class
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class MyClass {
+public:
+    static int count;
+
+    MyClass() { count++; }   // Constructor increments count
+    ~MyClass() { count--; }  // Destructor decrements count
+
+    static void displayCount() {
+        cout << "Current count: " << count << endl;
+    }
+};
+
+int MyClass::count = 0;  // Definition and initialization of static variable
+
+int main() {
+    MyClass::displayCount();  // Output: Current count: 0
+
+    MyClass obj1, obj2;
+    MyClass::displayCount();  // Output: Current count: 2
+
+    {
+        MyClass obj3;
+        MyClass::displayCount();  // Output: Current count: 3
+    }
+
+    MyClass::displayCount();  // Output: Current count: 2
+
+    return 0;
+}
+```
+
+In this example:
+- The `count` variable is static, so it is shared among all instances of `MyClass`.
+- The constructor and destructor increment and decrement the `count`, tracking the number of active objects in memory.
