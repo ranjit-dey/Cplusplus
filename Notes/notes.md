@@ -48,7 +48,7 @@ int main() {
     cout << "Hello World" << endl;
 }
 ```
-<h1 style="font-size: 50px; font-weight: bold; font-family: JetBrains Mono NL; color: aqua; ">function()</h1>
+<h1 style="font-size: 50px; font-weight: bold; font-family: sans-serif; color: yellow; ">function()</h1>
 
 ### **inline keyword**
 
@@ -490,7 +490,7 @@ for function overloading signature of function must be unique.
 
 
 <hr>
-<h1 style="font-size: 50px; font-weight: bold; font-family: JetBrains Mono NL; color: aqua; ">Structure</h1>
+<h1 style="font-size: 50px; font-weight: bold; font-family: sans-serif; color: yellow; ">Structure</h1>
 
 **Description of structure :**
 - It is option to write struct keyword while you are using structure variable only use struct keyword where it is defined (mandatory)
